@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Booking</title>
+
+    {% load static %}
+
+    <script src="{% static 'landing_page/js/jquery.min.js' %}"></script>
+    <script src="//cdn.bootcss.com/moment.js/2.17.1/moment.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="//cdn.bootcss.com/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+    <link href="{% static 'landing_page/css/all.min.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'landing_page/css/grayscale.min.css' %}">
+
+    {% load bootstrap3 %}
+
+    <link rel="icon" type="image/png" href='{% static 'landing_page/img/icon.png' %}' sizes="16x16">
+    <link rel="icon" type="image/png" href='{% static 'landing_page/img/icon.png' %}' sizes="32x32">
+
+  </head>
+
+
+
+  <body id="page-top">
+
+    <!-- Header -->
+    <header class="masthead">
+      <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+          <h1 class="mx-auto my-0 text-uppercase">Booking</h1>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Bahala</a>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/">Go back to homepage</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <script src="{% static 'landing_page/js/grayscale.min.js' %}"></script>
+    <script src="{% static 'landing_page/js/jquery.easing.min.js' %}"></script>
+
+    <!-- Signup Section -->
+    <section id="signup" class="signup-section">
+    </section>
+
+    <!-- Contact Section -->
+
+    <!-- Footer -->
+    <footer class="bg-black small text-center text-white-50">
+      <div class="container">
+        Copyright &copy; Thomas Clavet 2018
+      </div>
+      <div class="container">
+        <a href="#">bahala@gmail.com</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

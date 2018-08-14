@@ -1,0 +1,94 @@
+{% extends 'booking/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<!-- About Section -->
+<section id="about" class="about-section text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <p class="text-white-50">The booking process will be fast and easy.
+          Please make sure you provide all the information as explained below so I can process
+          your booking faster and more easily.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section bg-light">
+  <div class="container">
+
+    <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+      <div class="col col-xl-6 col-lg-6">
+        <div class="text-center text-lg-left mr-1">
+          <h4>Price</h4>
+          <p class="text-black-50 mb-0">Choosing your price should be easy</p>
+          <p class="text-black-50 mb-0">This should be the amount you are ready to pay (per person)
+            for a full dinner. Not more.</p>
+          <p class="text-black-50 mb-0">
+            Here is what you should take into account in your price:
+            <ul class="text-black-50 mb-0">
+              <li>Price for the food (number of meals could vary depending on it)</li>
+              <li>Price for the wine</li>
+            </ul class="text-black-50 mb-0">
+          </p>
+          </p>
+        </div>
+      </div>
+      <div class="col-xl-6 col-lg-6">
+        <div class="featured-text text-center text-lg-left">
+          <h4>Booking and Confirmation</h4>
+          <p class="text-black-50 mb-0">Once you are ready to book, make sure to provide all informations that may seem relevant (allergies, etc.)</p>
+          <p class="text-black-50 mb-0">When the booking is done, I will reach out to you to confirm all informations.</p>
+          </br>
+          <p class="text-black-50 mb-0">Since I am only doing out of passion and in order to make sure you are showing up, I will ask you
+            to pay ahead of time. </p>
+          </br>
+          <p class="text-black-50 mb-0">If the payment is not made within 1 to 2 days after I reached to you, your booking will be cancelled and made available again</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project One Row -->
+    <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+      <div class="col-lg-12">
+        <div class="bg-black text-center h-100 project">
+          <div class="d-flex h-100">
+            <div class="project-text w-100 my-auto text-center text-lg-left">
+              <h4 class="text-white text-center mb-4">Booking</h4>
+              {% if empty %}
+              <p class="text-white-50 text-center mb-0">Sorry, there are no open / available dates at the moment. Please check back as spots open on a rolling basis.</p>
+              {% else %}
+              <form method="post" id='booking_form' role="form">
+                          {% for field in form.visible_fields %}
+                          <div id="div_{{ field.html_name }}"
+                               class="form-group{% if field.errors %} has-error{% endif %} mb-4">
+                              <p class="text-white-50 text-center mb-0">{{ field.label_tag }}</p>
+                              {{ field }}
+                              <div class="text-muted pull-right">
+                                  <p class="text-white-50 text-center mb-0"><small>{{ field.help_text }}</small></p>
+                              </div>
+                              <div class="text-white-50 mb-0">
+                                {{ field.errors }}
+                              </div>
+                          </div>
+                          {% endfor %}
+                          {% for hidden in form.hidden_fields %}
+                              {{ hidden }}
+                          {% endfor %}
+                          {% csrf_token %}
+                          <div class="form-group text-center">
+                              <input type="submit" value="Submit" class="btn btn-primary" />
+                          </div>
+              </form>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}
